@@ -25,7 +25,7 @@ exports.up = function(knex) {
           tbl.string('description', 255);
       })
       .createTable('project_resources', tbl => {
-          tbl.increments('project_resouce_id');
+          tbl.increments('project_resource_id');
           tbl.integer('project_id')
           .unsigned()
           .references('id')
