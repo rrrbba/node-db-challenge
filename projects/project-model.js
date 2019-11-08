@@ -23,7 +23,7 @@ function findResources() {
 function findTasks(id) {
     return db('tasks as t')
     .join('project as p', 'p.id', 't.project_id')
-    .select('t.task_id', 't.task_description', 't.notes', 't.completed')
+    .select('t.task_id', 't.task_description', 't.notes', 'p.name', 'p.project_description', 't.completed')
     .where({ project_id: id});
 }
 
