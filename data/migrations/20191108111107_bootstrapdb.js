@@ -35,7 +35,7 @@ exports.up = function(knex) {
     
           tbl.integer('resource_id')
           .unsigned()
-          .references('id')
+          .references('resources_id')
           .inTable('resources')
           .onDelete('RESTRICT')
           .onUpdate('CASCADE');
