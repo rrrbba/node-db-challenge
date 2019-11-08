@@ -9,6 +9,9 @@ const router = express.Router();
 router.get('/', (req, res) => {
     Projects.find()
     .then(projects => {
+        projects.forEach(project => {
+            project.completed = project.completed ? true : false
+        })
         res.json(projects);
     })
     .catch(err => {
@@ -32,6 +35,9 @@ router.get('/:id/tasks', (req, res) => {
     const id = req.params.id;
     Projects.findTasks(id)
     .then(tasks => {
+        tasks.forEach(task => {
+            task.completed = task.completed ? true : false
+        })
         res.status(200).json(tasks);
     })
     .catch(err => {
